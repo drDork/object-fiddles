@@ -261,7 +261,7 @@ function MakePerson(a, b, c){
   var newPerson = {name: a, birthday: b, ssn: c};
   return newPerson;
 }
-
+// RG how would you save that new object globally so it could be captured or would that go to a DB where you wouldn't need it again in the script? 
 
 
 //NEXT PROBLEM
@@ -270,7 +270,10 @@ function MakePerson(a, b, c){
 
 // Create a function called MakeCard which takes in all the data it needs to make a Credit Card object and returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
 
-  //Code Here
+ function MakeCard(n, b, s, a){
+var creditCard = {name: n, birthday: b, ssn: s, address: a};
+return creditCard;
+ }
   
   
   
@@ -283,6 +286,14 @@ function MakePerson(a, b, c){
    Have bindCard merge the two parameters together into a new object which contains all the properties from the person as well as the creditcard.
 */
 
-  //Code Here
+var newPerson = {name: 'ryan', weight: 'too much', color: 'white'}
+var creditCard = {type: 'visa', limit: 70000, rate: '15%'};
 
+function bindCard(person, card){
+  var boundCard = Object.assign(person, card);
+  return boundCard;
+
+}
+
+var ryanCard = bindCard(newPerson, creditCard); // do this to get out of the function scope if you need to use it globally.
 
